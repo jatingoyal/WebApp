@@ -11,7 +11,6 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        string basePath = @"C:\Users\gjatin\Desktop\Learning\corpus";
         public ActionResult Index()
         {
             return View();
@@ -33,29 +32,21 @@ namespace WebApp.Controllers
 
         [Route("Home/ListFiles/{foldername}")]
         [HttpGet]
-        public string ListFiles(string foldername)
+        public ActionResult ListFiles(string foldername)
         {
-            Debug.WriteLine("XX " + foldername + " YY");
             List<FileModel> files = FileDirectoryService.GetFiles(foldername);
-            String s="";
-            foreach(FileModel f in files)
-            {
-                s += f.Id + " " + f.Name + "           ";
-            }
-            return s;
+            ViewData["DirFiles"] = files;
+            ViewData["Folder"] = foldername;
+            return View();
         }
 
         [Route("Home/ListFolders")]
         [HttpGet]
-        public string ListFolders()
+        public ActionResult ListFolders()
         {
             List<FolderModel> folders = FileDirectoryService.GetAllFolders();
-            string s = "";
-            foreach (FolderModel f in folders)
-            {
-                s += f.Name + "\n";
-            }
-            return s;
+            ViewData["DirFolders"] = folders;
+            return View();
         }
 
         [Route("Home/DownloadFile/{fileId}")]

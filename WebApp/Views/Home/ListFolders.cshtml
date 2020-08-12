@@ -1,16 +1,14 @@
-﻿@{
-    ViewData["Title"] = "All Folders";
-}
-
+﻿@using WebApp.Models
 @{
+    ViewData["Title"] = "All Folders";
     List<FolderModel> folders = (List<FolderModel>)ViewData["DirFolders"];
 }
 
-<div>
+<div class="jumbotron">
+    <h1>All Folders</h1>
     @foreach (var x in folders)
     {
-        <p><a href='@string.Format("/Home/ListFiles/{0}", @x.Name)'>@x.Name</a></p>
+        <p><a href='@string.Format("/Home/ListFiles?foldername={0}", @x.Name)'>@x.Name</a></p>
     }
-
 </div>
 
