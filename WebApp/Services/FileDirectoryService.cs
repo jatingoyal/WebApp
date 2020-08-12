@@ -30,11 +30,8 @@ namespace WebApp.Services
             Debug.WriteLine("ZZ" + fileId);
             string filePath = basePath + "\\" + file.Folder + "\\" + file.Name;
             filePath = HttpContext.Current.Server.MapPath(filePath);
-            filePath = @"C:\Users\gjatin\Downloads\windows64.iso";
-            Debug.WriteLine(filePath);
             if (!System.IO.File.Exists(filePath))
                 return;
-            Debug.WriteLine("ZZ" + fileId);
             System.IO.Stream oStream = null;
             try
             {

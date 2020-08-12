@@ -62,15 +62,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public void DownloadFile(int fileId)
         {
-            /*FileInfo fileInfo = new FileInfo(basePath + "\\" + folder + "\\" + filename);
-            if (fileInfo.Exists)
-            {
-                byte[] fileBytes = System.IO.File.ReadAllBytes(fileInfo.FullName);
-                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileInfo.Name);
-            }
-            return StatusCode(403);*/
             FileDirectoryService.DownloadFile(fileId);
-            Debug.WriteLine("ZZ"+fileId);
         }
     }
 }

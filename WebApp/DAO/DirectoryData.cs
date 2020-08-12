@@ -46,7 +46,7 @@ namespace WebApp.DAO
 
         public static List<FileModel> GetFilesFromFolder(string folderName)
         {
-            //Debug.WriteLine("YY " + folderName);
+            
             List<FileModel> allFiles = new List<FileModel>();
             con = new SqlConnection(connectionString);
             string commandText = $"Select * from files where folder='{folderName}'";
