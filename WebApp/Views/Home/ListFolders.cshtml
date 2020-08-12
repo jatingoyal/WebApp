@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "All Folders";
+}
+
+@{
+    List<FolderModel> folders = (List<FolderModel>)ViewData["DirFolders"];
+}
+
+<div>
+    @foreach (var x in folders)
+    {
+        <p><a href='@string.Format("/Home/ListFiles/{0}", @x.Name)'>@x.Name</a></p>
+    }
+
+</div>
+
